@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Registro</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <section class="fila0">
+          <h1>Habitacion 1</h1>
+          <button>Alta</button>
+        </section>
+        <section class="fila1">
+          <hr>
+          <h4>Nombre:</h4>
+          <p>{{informacionPaciente.nombre}}</p>
+          <h4>Edad:</h4>
+          <p>{{informacionPaciente.edad}}</p>
+          <h4>Sexo:</h4>
+          <p>{{informacionPaciente.sexo}}</p>
+          <h4>Padecimientos:</h4>
+          <p>{{informacionPaciente.padecimientos}}</p>
+          <h4>Alergias:</h4>
+          <p>{{informacionPaciente.alergias}}</p>
+          <h4>Causa de ingreso:</h4>
+          <p>{{informacionPaciente.causaIngreso}}</p>
+          <h4>Enfermera asignada:</h4>
+          <p>{{informacionPaciente.enfermera}}</p>
+          <h4>Especialidad asignada:</h4>
+          <p>{{informacionPaciente.especialidad}}</p>
+        </section>
+      </div>
+    </div>
+    <div class="container">
+        <section >
+            <h1>Historial incidencias </h1>
+          </section>
+        <div class="historial">
+          <section class="tarjeta "  *ngFor="let incidencia of historialIncidencias">
+           <section class="hora">
+            <div>
+                <h4>Hora alarma:</h4>
+                <p>{{ incidencia.horaAlarma }}</p>
+            </div>
+            <div>
+                <h4>Fecha:</h4>
+                <p>{{ incidencia.fecha }}</p>
+            </div>
+           </section>
+            <h4>Evento crítico:</h4>
+            <p>{{ incidencia.eventoCritico }}</p>
+            <h4>Acciones tomadas:</h4>
+            <p>{{ incidencia.accionesTomadas }}</p>
+          </section>
+        </div>
+      </div>
+  </body>
+</html>

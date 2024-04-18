@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  height: 65vh;
+  width: 32vw;
+  box-shadow: 0px -2px 10px -5px rgba(0, 0, 0, 0.1),
+    0px 8px 15px -5px rgba(0, 0, 0, 0.1);
+  margin: 90px 3%;
+  color: #136587;
+  padding: 2rem;
+}
+
+.form {
+  display: grid;
+  grid-template-areas: repeat(3, 1fr);
+  grid-template-areas: "fila0" "fila1";
+  padding: 0;
+  margin: 0;
+}
+
+.fila0 {
+  grid-area: fila0;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 110px;
+  position: relative;
+}
+.fila1 {
+  grid-area: fila1;
+}
+h4 {
+  margin-bottom: 0;
+  margin-top: 0;
+  color: #008ec8;
+  font-size: 13px;
+  text-align: justify;
+}
+p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #008ec8;
+}
+button {
+  padding: 10px 20px;
+  background-color: #36bef5;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 5rem;
+  height: 6vh;
+  position: absolute;
+  right: 0;
+}
+
+button:hover {
+  background-color: #77d8ff;
+}
+.historial{
+    max-height: 57vh; 
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tarjeta {
+  background: rgba(54, 190, 245, 0.11);
+  border-radius: 15px;
+  padding: 4% 8%;
+  display: grid;
+  grid-template-areas: repeat(2, 1fr);
+  grid-template-areas: "hora" "resto";
+  margin: 3%;
+}
+.hora {
+  grid-area: hora;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  position: relative;
+  gap: 30%;
+}

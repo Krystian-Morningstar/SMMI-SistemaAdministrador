@@ -1,0 +1,27 @@
+<div class="Navegador">
+      <div class="Logo_Pagina">
+        <img src=".\assets\images\logo_hospital.png" alt="logo"  />
+      </div>
+  
+      <div class="Nombre_Pagina">
+        <h2>SMMI</h2> 
+      </div>
+      <div class="Barra_Busqueda">
+        <input type="text" placeholder="   Buscar...">
+        <button (click)="mostrarAlarma()" type="button">Buscar</button>
+      </div>
+  
+      <div class="Opciones_Rutas">
+        <nav class="Rutas_Navegacion_Listado">
+          <button routerLink="/registro" type="button">
+            <img src=".\assets\images\registro.png" alt="logo"  />
+          </button>
+          <button routerLink="/inicio"type="button">
+            <img src=".\assets\images\home.png" alt="home"  />
+          </button>
+          <button (click)="mostrarMenu()" id="btnUsuario" type="button" >
+            <img src=".\assets\images\usuario.png" alt="usuario"  />
+          </button>
+        </nav>
+      </div>
+    </div>

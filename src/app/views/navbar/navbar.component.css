@@ -1,0 +1,87 @@
+ *{
+    font-family: Arial, sans-serif;
+}
+.Navegador {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(131, 131, 131, 0.4);
+}
+
+.Nombre_Pagina {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  position: relative;
+  margin: 0px 0px;
+}
+.Logo_Pagina img {
+  width: 50px;
+  padding: 8px 2px;
+  margin-left: 25px;
+}
+
+.Opciones_Rutas {
+  grid-column-start: 10;
+  grid-column-end: 15;
+  display: block;
+  justify-content: flex-end;
+  position: absolute;
+
+}
+
+.Rutas_Navegacion_Listado button {
+  color: #36BEF5;
+  background-color: #36BEF5;
+  height: 60px;
+  width: 10vw;
+  min-width: 50px; 
+  border: none;
+  margin: 0;
+  font-size: 0;
+  margin: 0px 0.4vw;
+  cursor: pointer;
+}
+
+.Rutas_Navegacion_Listado button:hover {
+  background-color: #77d8ff;
+}
+.Rutas_Navegacion_Listado img {
+  width: 33px;
+  padding: 8px 2px;
+}
+.Barra_Busqueda {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    margin-left: 20px;
+    margin-top: 20px;  }
+  
+  .Barra_Busqueda input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+    width: 32vw;
+    border: none;
+    border-radius: 10px;
+    background-color: #F3F3F3;
+    outline: none;
+  }
+  
+  .Barra_Busqueda button {
+    padding: 5px 10px;
+    background-color: #36BEF5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .Barra_Busqueda button:hover {
+    background-color: #77d8ff;
+  }
+  
+  

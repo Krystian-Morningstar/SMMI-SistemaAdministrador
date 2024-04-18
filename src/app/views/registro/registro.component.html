@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Registro</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="form">
+        <section class="fila0">
+          <h1>Registro de Paciente</h1>
+          <button>Registrar</button>
+        </section>
+
+        <section class="fila1">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required />
+          </div>
+          <div class="form-group">
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo" required>
+              <option value="Mujer">Mujer</option>
+              <option value="Hombre">Hombre</option>
+            </select>
+          </div>
+        </section>
+        
+        <section class="fila2">
+          <div class="form-group alergias">
+            <label for="padecimientos">Padecimientos:</label>
+            <textarea name="padecimientos" id="padecimientos" cols="30" rows="10"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="alergias">Alergias:</label>
+            <textarea name="alergias" id="alergias" cols="30" rows="10"></textarea>
+          </div>
+        </section>
+        <section class="fila4">
+          <div class="form-group alergias">
+            <label for="padecimientos">Causa de ingreso:</label>
+            <textarea name="causaIngreso" id="causaIngreso" cols="30" rows="10"></textarea>
+          </div>
+        </section>
+
+        <section class="fila3">
+          <div class="form-group">
+            <label for="habitacion">Habitación:</label>
+            <select id="habitacion" name="habitacion" required>
+              <option value="habitacion1">Habitación 1</option>
+              <option value="habitacion2">Habitación 2</option>
+              <option value="habitacion3">Habitación 3</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="enfermera">Enfermera:</label>
+            <select id="enfermera" name="enfermera" required>
+              <option value="enfermera1">Enfermera 1</option>
+              <option value="enfermera2">Enfermera 2</option>
+              <option value="enfermera3">Enfermera 3</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="especialidad">Especialidad:</label>
+            <select id="especialidad" name="especialidad" required>
+              <option value="especialidad1">Especialidad 1</option>
+              <option value="especialidad2">Especialidad 2</option>
+              <option value="especialidad3">Especialidad 3</option>
+            </select>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

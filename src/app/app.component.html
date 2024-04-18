@@ -1,0 +1,8 @@
+<section class="contenedor">
+    <app-alerta *ngIf="mostrarAlarma"></app-alerta>
+    <app-navbar class="navbar"></app-navbar>
+    <section>
+        <app-perfil *ngIf="mostrar"></app-perfil>
+        <router-outlet></router-outlet>
+    </section>
+</section>
