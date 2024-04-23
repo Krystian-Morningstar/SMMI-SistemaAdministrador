@@ -60,10 +60,8 @@ h1 {
 }
 .fila4 {
     grid-area: fila4;
-    display: grid;
-    grid-template-columns: 100% ;
   }
-  .fila4 div textarea {
+  .fila4  textarea {
     width: 68.2vw;
     height: 5vh;
     overflow-y: auto;
@@ -116,4 +114,10 @@ button {
 
 button:hover {
   background-color: #77d8ff;
+}
+.error-message {
+  color: rgba(255, 0, 98, 0.482);
+  font-size: 0.9em;
+  position: relative;
+  left: 32vw;
 }

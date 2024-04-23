@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulario de Registro</title>
   </head>
-  <body>
+  <body >
     <div class="container">
 
       <div class="form">
         <section class="fila0">
           <h1>Registro de Paciente</h1>
-          <button>Registrar</button>
+          <button (click)="registrar()">Registrar</button>
         </section>
 
         <section class="fila1">
           <div class="form-group">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required />
+            <input type="text" id="nombre" name="nombre"  (input)="actualizarNombre($event)" [value]="registro.nombre" required placeholder="Nombre"/>
           </div>
           <div class="form-group">
             <label for="edad">Edad:</label>
-            <input type="number" id="edad" name="edad" required />
+            <input type="number" id="edad" name="edad" (input)="actualizarEdad($event)" [value]="registro.edad" required placeholder="Edad" />
           </div>
           <div class="form-group">
             <label for="sexo">Sexo:</label>
@@ -35,45 +35,40 @@
         <section class="fila2">
           <div class="form-group alergias">
             <label for="padecimientos">Padecimientos:</label>
-            <textarea name="padecimientos" id="padecimientos" cols="30" rows="10"></textarea>
+            <textarea name="padecimientos" id="padecimientos" cols="30" rows="10" (input)="actualizarPadecimientos($event)" [value]="registro.padecimientos" placeholder="Padeciminetos..." required></textarea>
           </div>
           <div class="form-group">
             <label for="alergias">Alergias:</label>
-            <textarea name="alergias" id="alergias" cols="30" rows="10"></textarea>
+            <textarea name="alergias" id="alergias" cols="30" rows="10" (input)="actualizarAlergias($event)" [value]="registro.alergias" placeholder="Alergias..." required></textarea>
           </div>
         </section>
         <section class="fila4">
           <div class="form-group alergias">
-            <label for="padecimientos">Causa de ingreso:</label>
-            <textarea name="causaIngreso" id="causaIngreso" cols="30" rows="10"></textarea>
+            <label for="causaIngreso">Causa de ingreso:</label>
+            <textarea name="causaIngreso" id="causaIngreso" cols="30" rows="10" (input)="actualizarCausaIngreso($event)" [value]="registro.causaIngreso" placeholder="Causa de ingreso..." required></textarea>
           </div>
         </section>
 
         <section class="fila3">
           <div class="form-group">
-            <label for="habitacion">Habitación:</label>
+            <label for="habitacion" >Habitación:</label>
             <select id="habitacion" name="habitacion" required>
-              <option value="habitacion1">Habitación 1</option>
-              <option value="habitacion2">Habitación 2</option>
-              <option value="habitacion3">Habitación 3</option>
+              <option value="habitacion1"required *ngFor="let Especialidad of especialidades">{{Especialidad.nombre}}</option>
             </select>
           </div>
           <div class="form-group">
             <label for="enfermera">Enfermera:</label>
             <select id="enfermera" name="enfermera" required>
-              <option value="enfermera1">Enfermera 1</option>
-              <option value="enfermera2">Enfermera 2</option>
-              <option value="enfermera3">Enfermera 3</option>
+              <option value="enfermera1"required *ngFor="let Especialidad of especialidades">{{Especialidad.nombre}}</option>
             </select>
           </div>
           <div class="form-group">
             <label for="especialidad">Especialidad:</label>
             <select id="especialidad" name="especialidad" required>
-              <option value="especialidad1">Especialidad 1</option>
-              <option value="especialidad2">Especialidad 2</option>
-              <option value="especialidad3">Especialidad 3</option>
+              <option value="especialidad1" required *ngFor="let Especialidad of especialidades">{{Especialidad.nombre}}</option>
             </select>
           </div>
+          <span  *ngIf="activar" class="error-message">{{mensaje}}</span>
         </section>
       </div>
     </div>
