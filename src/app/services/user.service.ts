@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Usuario } from '../models/user.model';
 
 
 @Injectable({
@@ -10,7 +9,7 @@ import { Usuario } from '../models/user.model';
 })
 
 export class UserService {
-  api_url =environment.url_api + 'api/auth/login';
+  api_url = environment.url_api + 'api/auth/login';
 
    constructor(private http: HttpClient) {}
      headers= new HttpHeaders({

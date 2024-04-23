@@ -1,0 +1,7 @@
+{
+    "/api":{
+        "target":"https://smmi-api-production.up.railway.app/",
+        "secure":false,
+        "pathRewrite":{"^/api":""}
+    }
+}
