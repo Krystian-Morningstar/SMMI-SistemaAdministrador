@@ -9,13 +9,12 @@
     <div class="container">
       <div class="form">
         <section class="fila0">
-          <h1>Habitacion 1</h1>
-          <button>Alta</button>
+          <h1>Habitacion {{informacionPaciente.id_habitacion}}</h1>
+          <button (click)="alta()">Alta</button>
         </section>
         <section class="fila1">
-          <hr>
           <h4>Nombre:</h4>
-          <p>{{informacionPaciente.nombre}}</p>
+          <p>{{informacionPaciente.nombres}} {{informacionPaciente.apellidos}}</p>
           <h4>Edad:</h4>
           <p>{{informacionPaciente.edad}}</p>
           <h4>Sexo:</h4>
@@ -25,11 +24,11 @@
           <h4>Alergias:</h4>
           <p>{{informacionPaciente.alergias}}</p>
           <h4>Causa de ingreso:</h4>
-          <p>{{informacionPaciente.causaIngreso}}</p>
+          <p>{{informacionPaciente.causa_ingreso}}</p>
           <h4>Enfermera asignada:</h4>
-          <p>{{informacionPaciente.enfermera}}</p>
+          <p>{{informacionPaciente.id_enfermera}}</p>
           <h4>Especialidad asignada:</h4>
-          <p>{{informacionPaciente.especialidad}}</p>
+          <p>{{informacionPaciente.id_especialidad}}</p>
         </section>
       </div>
     </div>
@@ -55,6 +54,9 @@
             <p>{{ incidencia.accionesTomadas }}</p>
           </section>
         </div>
+      </div>
+      <div class="mensaje" [class.visible]="mensaje">
+        {{ mensaje }}
       </div>
   </body>
 </html>

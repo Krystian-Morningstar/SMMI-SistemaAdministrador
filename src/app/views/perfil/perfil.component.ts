@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { perfil_interface } from 'src/app/models/perfil.model';
 import { Router } from '@angular/router';
+import { PerfilService } from 'src/app/services/perfil.service';
+import {SistemaService} from './../../services/sistema.service'
+
 
 @Component({
   selector: 'app-perfil',
@@ -8,27 +11,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-
-   nombre: string="Arturo";
-   matricula: string="12345678"
-   telefono: string= "2722828767"
-   
-   public Mostrar_Pantalla: boolean = false;
-  
+     
    async ngOnInit(): Promise<void> {
-     this.Mostrar_Pantalla = false;
+     this.obtenerPerfil();
    }
-   constructor(private router: Router) {}
-
+   constructor(private router: Router, private perfilService: PerfilService, private servicio: SistemaService) {}
 
    perfil: perfil_interface={
-    "nombre": "",
-    "matricula": "",
-    "telefono":""
+    nombres: "",
+    apellidos: "",
+    matricula: "",
+    telefono:""
    }
 
+   async obtenerPerfil(){
+      let matricula = localStorage.getItem('matricula');
+      if (matricula !== null) {
+        let a : any= await this.perfilService.perfil(matricula).toPromise();
+        this.perfil.nombres = a.nombres;
+        this.perfil.apellidos = a.apellidos;
+        this.perfil.matricula = a.matricula;
+        this.perfil.telefono = a.telefono;
+      }
+    }
+
    cerrarSesion(){
+    localStorage.removeItem('token')
+    localStorage.removeItem('matricula')
+    localStorage.clear();
       this.router.navigate(['/login']); 
-      localStorage.removeItem('token')
-   }
+   } 
+   
 }

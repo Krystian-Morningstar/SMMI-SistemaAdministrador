@@ -1,5 +1,6 @@
 export interface perfil_interface{
-    nombre: string;
+    nombres: string;
+    apellidos: string;
     matricula: string;
     telefono: string;
 }

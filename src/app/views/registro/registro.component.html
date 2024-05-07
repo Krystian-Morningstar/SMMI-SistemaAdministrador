@@ -17,7 +17,11 @@
         <section class="fila1">
           <div class="form-group">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre"  (input)="actualizarNombre($event)" [value]="registro.nombre" required placeholder="Nombre"/>
+            <input type="text" id="nombre" name="nombre"  (input)="actualizarNombre($event)" [value]="registro.nombres" required placeholder="Nombre"/>
+          </div>
+          <div class="form-group">
+            <label for="apellido">Apellidos:</label>
+            <input type="text" id="apellido" name="apellido"  (input)="actualizarApellido($event)" [value]="registro.apellidos" required placeholder="Apellidos"/>
           </div>
           <div class="form-group">
             <label for="edad">Edad:</label>
@@ -25,9 +29,10 @@
           </div>
           <div class="form-group">
             <label for="sexo">Sexo:</label>
-            <select id="sexo" name="sexo" required>
-              <option value="Mujer">Mujer</option>
-              <option value="Hombre">Hombre</option>
+            <select id="sexo" name="sexo" required  (input)="actualizarSexo($event)">
+              <option value="" disabled selected>Sexo</option>
+              <option value="M">Mujer</option>
+              <option value="H">Hombre</option>
             </select>
           </div>
         </section>
@@ -45,27 +50,30 @@
         <section class="fila4">
           <div class="form-group alergias">
             <label for="causaIngreso">Causa de ingreso:</label>
-            <textarea name="causaIngreso" id="causaIngreso" cols="30" rows="10" (input)="actualizarCausaIngreso($event)" [value]="registro.causaIngreso" placeholder="Causa de ingreso..." required></textarea>
+            <textarea name="causaIngreso" id="causaIngreso" cols="30" rows="10" (input)="actualizarCausaIngreso($event)" [value]="registro.causa_ingreso" placeholder="Causa de ingreso..." required></textarea>
           </div>
         </section>
 
         <section class="fila3">
           <div class="form-group">
             <label for="habitacion" >Habitación:</label>
-            <select id="habitacion" name="habitacion" required>
-              <option value="habitacion1"required *ngFor="let Especialidad of especialidades">{{Especialidad.nombre}}</option>
+            <select id="habitacion" name="habitacion" required (input)="actualizarHabitacion($event)">
+              <option value="Habitacion" disabled selected>Habitacion</option>
+              <option value="habitacion1"required *ngFor="let Habitacion of habitaciones" [value]="Habitacion.id_habitacion">{{Habitacion.id_habitacion}}</option>
             </select>
           </div>
           <div class="form-group">
             <label for="enfermera">Enfermera:</label>
-            <select id="enfermera" name="enfermera" required>
-              <option value="enfermera1"required *ngFor="let Especialidad of especialidades">{{Especialidad.nombre}}</option>
+            <select id="enfermera" name="enfermera" required (input)="actualizarEnfermera($event)">
+              <option value="Enfermera" disabled selected>Enfermera</option>
+              <option value="enfermera1"required *ngFor="let Enfermera of enfermeras" [value]="Enfermera.matricula">{{Enfermera.nombres}}</option>
             </select>
           </div>
           <div class="form-group">
             <label for="especialidad">Especialidad:</label>
-            <select id="especialidad" name="especialidad" required>
-              <option value="especialidad1" required *ngFor="let Especialidad of especialidades">{{Especialidad.nombre}}</option>
+            <select id="especialidad" name="especialidad" required (input)="actualizarEspecialidad($event)">
+              <option value="Especialidad" disabled selected>Especialidad</option>
+              <option value="especialidad1" required *ngFor="let Especialidad of especialidades" [value]="Especialidad.id">{{Especialidad.nombre}}</option>
             </select>
           </div>
           <span  *ngIf="activar" class="error-message">{{mensaje}}</span>

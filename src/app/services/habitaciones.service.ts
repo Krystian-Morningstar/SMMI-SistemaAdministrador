@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ConectionService {
-  api_url =environment.url_api + 'api/especialidades';
+export class HabitacionesService {
+  api_url =environment.url_api + 'api/ingresos/activos';
   constructor(private http: HttpClient) { }
 
   headers= new HttpHeaders({
@@ -16,17 +16,18 @@ export class ConectionService {
   
   option = {headers: this.headers}
 
-  especialidades(): Observable<string>{
+  habitaciones(): Observable<string>{
     let result =  this.http.get<string>(this.api_url);
     return result;
   }
 
-  enfermeras(): Observable<string>{
-    let result =  this.http.get<string>(environment.url_api + 'api/enfermeras');
+  habitacion(id: string): Observable<string>{
+    let result =  this.http.get<string>(environment.url_api + 'api/ingresos/'+ id);
     return result;
   }
-  habitaciones(): Observable<string>{
-    let result =  this.http.get<string>(environment.url_api + 'api/habitaciones/desocupados');
+  alta(id: string){
+    let result =  this.http.patch<any>(environment.url_api + 'api/ingresos/'+ id, {});
     return result;
   }
+
 }

@@ -6,7 +6,7 @@
   </head>
   <body>
     <div class="habitaciones">
-      <button routerLink="/habitacion" class="habitacion" *ngFor="let habitacion of habitaciones">
+      <button (click)="seleccionarHabitacion(habitacion)" class="habitacion" *ngFor="let habitacion of habitaciones">
         <div class="imagen">
           <img
             src=".\assets\images\habitacion.jpg"
@@ -14,7 +14,7 @@
           />
         </div>
         <div class="titulo">
-          <p>{{ habitacion.titulo }}</p>
+          <p>Habitación {{ habitacion.habitacion.id_habitacion.id_habitacion }}</p>
         </div>
         <div class="contenido">
           <div class="signos">

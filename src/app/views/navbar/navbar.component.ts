@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {SistemaService} from './../../services/sistema.service'
 
 @Component({
@@ -6,24 +6,22 @@ import {SistemaService} from './../../services/sistema.service'
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
 
   constructor(private servicio: SistemaService){
   }
-
   mostrar : boolean = false;
   mostrarAlarmaa : boolean = false;
 
-
-  mostrarMenu(){
-    if(this.mostrar== false){
-      this.mostrar= true;
-      this.servicio.Actualizar_Menu(true);
-    } else{
-      this.mostrar= false;
-      this.servicio.Actualizar_Menu(false);
+  ngOnInit(): void {
+      this.mostrar = false;
     }
-  }
+
+    mostrarMenu() {
+      this.mostrar = !this.mostrar; // Alternar el estado del menú
+      this.servicio.Actualizar_Menu(this.mostrar);
+    }
+  
 
   mostrarAlarma(){
     if(this.mostrarAlarmaa== false){

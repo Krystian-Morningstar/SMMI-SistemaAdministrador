@@ -1,11 +1,12 @@
   export interface registro_Interface{
-    nombre:string;
-    edad:string;
+    nombres:string;
+    apellidos: string;
     sexo:string;
+    edad:number;
     padecimientos:string;
     alergias:string;
-    causaIngreso:string;
-    habitacion:string;
-    enfermera:string;
-    especialidad: string;
+    causa_ingreso:string;
+    id_habitacion:number;
+    id_enfermera:string;
+    id_especialidad: number;
   }

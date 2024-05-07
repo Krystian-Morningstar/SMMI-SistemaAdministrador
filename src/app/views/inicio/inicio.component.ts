@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { HabitacionesService } from 'src/app/services/habitaciones.service';
 
 @Component({
   selector: 'app-inicio',
@@ -6,104 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
-  habitaciones = [
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 1",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 2",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 3",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 4",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 5",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 1",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 2",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 3",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 4",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 5",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 1",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
-    {
-      imagen: "https://firebasestorage.googleapis.com/v0/b/heartmodel-caedd.appspot.com/o/images.jpg?alt=media&token=07b79e4e-1601-455a-a16f-de881a90b1e4",
-      titulo: "Habitación 2",
-      temperatura: 37,
-      oxigeno: 120,
-      presion: 120,
-      ritmoCardiaco: 50
-    },
- 
+  habitaciones: any[] = []; 
 
-  ];
+  constructor(private habitacionesService: HabitacionesService, private router: Router) {}
+
+  async ngOnInit(){
+    await this.habitacionesService.habitaciones().subscribe((data: any) => {
+      this.habitaciones = data.map((habitacion: any) => ({
+        habitacion: habitacion
+      }));
+    });
+  }
+
+  seleccionarHabitacion(habitacion: any){
+    this.router.navigate(['habitacion'], { queryParams: { id: habitacion.habitacion.id_ingreso } });
+  }
 }

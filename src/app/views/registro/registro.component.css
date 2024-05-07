@@ -30,8 +30,8 @@ h1 {
 }
 
 .form-group {
-  margin-bottom: 13px;
-  width: 20vw;
+  margin-bottom: 10px;
+  width: 15vw;
 }
 
 .fila0 {
@@ -47,11 +47,11 @@ h1 {
   grid-area: fila1;
   width: 70vw;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
-  gap: 2.7%;
+  grid-template-columns: 25% 25% 25% 25%;
+  gap: 1%;
   position: relative; 
-
 }
+
 .fila2 {
   grid-area: fila2;
   display: grid;

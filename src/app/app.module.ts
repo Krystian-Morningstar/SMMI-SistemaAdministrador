@@ -10,7 +10,7 @@ import { AlertaComponent } from './views/alerta/alerta.component';
 import { HabitacionComponent } from './views/habitacion/habitacion.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { Login2Component } from './views/login2/login2.component';
+import { Login2Component } from './views/login/login.component';
 
 @NgModule({
   declarations: [

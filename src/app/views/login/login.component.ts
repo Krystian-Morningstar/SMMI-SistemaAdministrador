@@ -37,10 +37,11 @@ export class Login2Component {
       try {
         let respuesta: any = await this.userService.loginUser(this.usuario.matricula, this.usuario.contraseña).toPromise();
         if (respuesta.message == 'Sesion_Activa') {
+          this.showToast('successToast');
           localStorage.setItem('token', respuesta.token);
+          localStorage.setItem('matricula', this.usuario.matricula);  
           this.isLoggedIn = false;
           this.router.navigate(['/inicio']);
-          this.showToast('successToast');
           return
         }
         } catch (error) {
@@ -56,7 +57,7 @@ export class Login2Component {
 
   validateMatricula(matricula: string): boolean {
     // Validar la matrícula 
-    const regex = /^M\d{5}[a-zA-Z]$/;
+    const regex = /^A\d{5}[a-zA-Z]$/;
     return regex.test(matricula);
     //return true;
   }

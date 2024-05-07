@@ -21,5 +21,4 @@ Actualizar_Menu (menuIniciar : boolean){
 Actualizar_Alerta(alertaIniciar: boolean){
   this.alertaInSubject.next(alertaIniciar);
 }
-  constructor() { }
 }
