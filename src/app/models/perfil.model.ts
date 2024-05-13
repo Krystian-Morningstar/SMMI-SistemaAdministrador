@@ -3,4 +3,5 @@ export interface perfil_interface{
     apellidos: string;
     matricula: string;
     telefono: string;
+    imagen: string;
 }

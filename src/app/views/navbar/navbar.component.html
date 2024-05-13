@@ -7,8 +7,8 @@
         <h2>SMMI</h2> 
       </div>
       <div class="Barra_Busqueda">
-        <input type="text" placeholder="   Buscar...">
-        <button (click)="mostrarAlarma()" type="button">Buscar</button>
+        <input type="text"  (input)="actualizarBuscar($event)" [value]="buscar"placeholder="   Buscar...">
+        <button (click)="buscarHabitacion(buscar)" type="button">Buscar</button>
       </div>
   
       <div class="Opciones_Rutas">

@@ -11,6 +11,22 @@ import { HabitacionComponent } from './views/habitacion/habitacion.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Login2Component } from './views/login/login.component';
+import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
+import { BusquedaComponent } from './views/busqueda/busqueda.component';
+
+export const connection: IMqttServiceOptions = {
+  hostname: '10.40.2.83',
+  port: 8083,
+  path: '/mqtt',
+  clean: true, 
+  connectTimeout: 4000, 
+  reconnectPeriod: 4000, 
+  clientId: 'mqttx_597046f4',
+  username: 'emqx_test',
+  password: 'emqx_test',
+  protocol: 'ws',
+  connectOnCreate: false,
+}
 
 @NgModule({
   declarations: [
@@ -22,12 +38,14 @@ import { Login2Component } from './views/login/login.component';
     AlertaComponent,
     HabitacionComponent,
     Login2Component,
+    BusquedaComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserModule, 
+    MqttModule.forRoot(connection)
   ],
   providers: [],
   bootstrap: [AppComponent]

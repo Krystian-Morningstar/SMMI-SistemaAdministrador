@@ -42,7 +42,7 @@ ngOnInit(): void {
       } catch (error) {
         console.error('Error al realizar la solicitud:', error);
       }
-            this.mensaje = "Acción realizada correctamente."; 
+      this.mensaje = "Acción realizada correctamente."; 
       await new Promise(resolve => setTimeout(resolve, 1500));
       this.router.navigate(['/inicio']);
     } else {

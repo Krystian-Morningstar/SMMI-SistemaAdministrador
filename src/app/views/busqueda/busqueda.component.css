@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.habitaciones {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  justify-content: left;
+  align-items: center;
+  grid-gap: 0px 0px;
+  margin: 0 auto;
+  max-width: 75%;
+  margin-top: 80px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+.habitacion {
+  position: relative;
+  max-width: 220px;
+  height: 145px;
+  background-color: rgb(0, 132, 255);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: hidden;
+  text-align: left;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.habitaciones button:hover {
+  background-color: rgb(139, 199, 255);
+}
+
+img {
+  width: 250px;
+  height: 200px;
+  opacity: 0.4;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.titulo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%;
+  padding: 0px 18px;
+  color: #ffffff;
+  background-color: rgba(0, 166, 255, 0.209);
+  font-weight: 550;
+  margin: 0;
+  font-size: 23px;
+}
+.contenido {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  padding: 0px 18px;
+  box-sizing: border-box;
+  color: rgba(19, 101, 135, 1);
+  background-color: rgba(255, 255, 255, 0.572);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.contenido h2 {
+  margin-top: 0;
+}
+
+.contenido ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contenido ul li {
+  padding: 3px 0;
+}

@@ -40,7 +40,7 @@
         <section class="fila2">
           <div class="form-group alergias">
             <label for="padecimientos">Padecimientos:</label>
-            <textarea name="padecimientos" id="padecimientos" cols="30" rows="10" (input)="actualizarPadecimientos($event)" [value]="registro.padecimientos" placeholder="Padeciminetos..." required></textarea>
+            <textarea name="padecimientos" id="padecimientos" cols="30" rows="10" (input)="actualizarPadecimientos($event)" [value]="registro.padecimientos" placeholder="Padecimientos..." required></textarea>
           </div>
           <div class="form-group">
             <label for="alergias">Alergias:</label>
@@ -59,7 +59,7 @@
             <label for="habitacion" >Habitación:</label>
             <select id="habitacion" name="habitacion" required (input)="actualizarHabitacion($event)">
               <option value="Habitacion" disabled selected>Habitacion</option>
-              <option value="habitacion1"required *ngFor="let Habitacion of habitaciones" [value]="Habitacion.id_habitacion">{{Habitacion.id_habitacion}}</option>
+              <option value="habitacion1"required *ngFor="let Habitacion of habitaciones" [value]="Habitacion.id_habitacion">{{Habitacion.nombre_habitacion}}</option>
             </select>
           </div>
           <div class="form-group">

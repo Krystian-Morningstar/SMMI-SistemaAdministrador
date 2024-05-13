@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ConectionService } from 'src/app/services/conection.service';
 import { registro_Interface } from 'src/app/models/registro.model';
 import { RegistroService } from 'src/app/services/registro.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-registro',
@@ -9,7 +11,7 @@ import { RegistroService } from 'src/app/services/registro.service';
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent implements OnInit{
-  constructor(private conection: ConectionService, private registroService: RegistroService) {}
+  constructor(private conection: ConectionService, private registroService: RegistroService, private router: Router) {}
   especialidades: any = [];
   enfermeras: any = [];
   habitaciones: any = [];
@@ -85,6 +87,8 @@ async ngOnInit() {
       this.activar= true;
       await this.registroService.registrarIngreso(this.registro).toPromise();
       this.mensaje= "Registro exitoso"
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      this.router.navigate(['/inicio']);
     }else{
       this.mensaje= "Por favor complete todos los campos"
       this.activar= true;

@@ -29,5 +29,8 @@ export class HabitacionesService {
     let result =  this.http.patch<any>(environment.url_api + 'api/ingresos/'+ id, {});
     return result;
   }
-
+  habitacionByNombre(nombre: string): Observable<string>{
+    let result =  this.http.get<string>(environment.url_api + 'api/ingresos/busq/?nombre='+ nombre);
+    return result;
+  }
 }

@@ -6,24 +6,26 @@ import { Observable } from 'rxjs'; // Asegúrate de importar Observable
 import { SignosService } from 'src/app/services/signos.service';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css'],
+  selector: 'app-Busqueda',
+  templateUrl: './Busqueda.component.html',
+  styleUrls: ['./Busqueda.component.css'],
 })
-export class InicioComponent implements OnInit {
+export class BusquedaComponent implements OnInit {
   habitaciones: any[] = [];
   private mqttSubscriptions: { [topic: string]: Observable<string> } = {};
-
+nombre: any;
   constructor(
     private habitacionesService: HabitacionesService,
     private router: Router,
     private route: ActivatedRoute,
-
     private mqttService: SignosService
   ) {}
 
   async ngOnInit() {
-    await this.habitacionesService.habitaciones().subscribe((data: any) => {
+    this.route.queryParams.subscribe(params => {
+      this.nombre= params['id'];
+    });
+    await this.habitacionesService.habitacionByNombre(this.nombre).subscribe((data: any) => {
       this.habitaciones = data.map((habitacion: any) => ({
         nombre: habitacion.id_habitacion.nombre_habitacion,
         ingreso: habitacion.id_ingreso,
