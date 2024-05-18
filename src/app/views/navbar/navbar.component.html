@@ -7,7 +7,7 @@
         <h2>SMMI</h2> 
       </div>
       <div class="Barra_Busqueda">
-        <input type="text"  (input)="actualizarBuscar($event)" [value]="buscar"placeholder="   Buscar...">
+        <input type="text"  (input)="actualizarBuscar($event)" [value]="buscar"placeholder="   Buscar..."  (keypress)="onKeyPress($event)">
         <button (click)="buscarHabitacion(buscar)" type="button">Buscar</button>
       </div>
   
@@ -19,7 +19,7 @@
           <button routerLink="/inicio"type="button">
             <img src=".\assets\images\home.png" alt="home"  />
           </button>
-          <button (click)="mostrarMenu()" id="btnUsuario" type="button" >
+          <button (click)="mostrarMenu($event)" id="btnUsuario" type="button" >
             <img src=".\assets\images\usuario.png" alt="usuario"  />
           </button>
         </nav>

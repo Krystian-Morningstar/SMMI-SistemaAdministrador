@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { HabitacionesService } from 'src/app/services/habitaciones.service';
-import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs'; // Asegúrate de importar Observable
 import { SignosService } from 'src/app/services/signos.service';
 
@@ -17,7 +16,6 @@ export class InicioComponent implements OnInit {
   constructor(
     private habitacionesService: HabitacionesService,
     private router: Router,
-    private route: ActivatedRoute,
 
     private mqttService: SignosService
   ) {}

@@ -92,6 +92,9 @@ async ngOnInit() {
     }else{
       this.mensaje= "Por favor complete todos los campos"
       this.activar= true;
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      this.activar= false;
+      console.log(this.activar);
     }
   }
 }

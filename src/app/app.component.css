@@ -9,6 +9,7 @@ body {
     position: fixed;
     width: 100vw;
     height: 100vh;
+    left: 0;
 }
 
 .navbar{
@@ -16,4 +17,7 @@ body {
     width: 100vw;
     left: 0;
     top: 0;
+}
+.lol{
+position: absolute;
 }

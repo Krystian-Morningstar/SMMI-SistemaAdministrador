@@ -11,7 +11,7 @@ body {
   align-items: center;
   grid-gap: 0px 0px;
   margin: 0 auto;
-  max-width: 75%;
+  max-width: 80%;
   margin-top: 80px;
   max-height: calc(100vh - 80px);
   overflow-y: auto;

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { perfil_interface } from 'src/app/models/perfil.model';
 import { Router } from '@angular/router';
 import { PerfilService } from 'src/app/services/perfil.service';
-import { SistemaService } from 'src/app/services/sistema.service';
 
 @Component({
   selector: 'app-perfil',
@@ -17,8 +16,9 @@ export class PerfilComponent implements OnInit {
     telefono: "",
     imagen: ""
   };
+  
 
-  constructor(private router: Router, private perfilService: PerfilService, private servicio: SistemaService) { }
+  constructor(private router: Router, private perfilService: PerfilService) { }
 
   ngOnInit(): void {
     this.obtenerPerfilFromCache();
@@ -44,7 +44,6 @@ export class PerfilComponent implements OnInit {
         this.perfil.telefono = response.telefono;
         this.perfil.imagen = response.url_img;
 
-        // Almacenar en caché el perfil obtenido
         localStorage.setItem('cachedProfile', JSON.stringify(this.perfil));
       } catch (error) {
         console.error('Error al obtener el perfil:', error);
@@ -56,6 +55,7 @@ export class PerfilComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('matricula');
     localStorage.removeItem('cachedProfile');
+    location.reload(); // Recarga la página forzando una recarga desde el servidor (ignora la caché)
     this.router.navigate(['/login']);
   }
 }

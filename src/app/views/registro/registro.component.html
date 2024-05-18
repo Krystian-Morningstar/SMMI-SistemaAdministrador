@@ -6,6 +6,8 @@
     <title>Formulario de Registro</title>
   </head>
   <body >
+    <span  *ngIf="activar" class="error-message">{{mensaje}}</span>
+
     <div class="container">
 
       <div class="form">
@@ -76,7 +78,6 @@
               <option value="especialidad1" required *ngFor="let Especialidad of especialidades" [value]="Especialidad.id">{{Especialidad.nombre}}</option>
             </select>
           </div>
-          <span  *ngIf="activar" class="error-message">{{mensaje}}</span>
         </section>
       </div>
     </div>

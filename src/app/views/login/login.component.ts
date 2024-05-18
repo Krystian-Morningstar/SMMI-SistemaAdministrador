@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Usuario } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
+import {SistemaService} from './../../services/sistema.service'
+
 
 @Component({
   selector: 'app-login2',
@@ -24,7 +26,7 @@ export class Login2Component {
     this.usuario.matricula = this.matricula
     this.usuario.contraseña = this.contrasena
   }
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private servicio: SistemaService) { }
 
   async onSubmit() {
     this.actualizarUsuario();
@@ -38,6 +40,7 @@ export class Login2Component {
         let respuesta: any = await this.userService.loginUser(this.usuario.matricula, this.usuario.contraseña).toPromise();
         if (respuesta.message == 'Sesion_Activa') {
           this.showToast('successToast');
+          await new Promise(resolve => setTimeout(resolve, 1500));
           localStorage.setItem('token', respuesta.token);
           localStorage.setItem('matricula', this.usuario.matricula);  
           this.isLoggedIn = false;
@@ -50,23 +53,18 @@ export class Login2Component {
         }
       }else{
         this.showToast('errorToast');
-
       }
         
   }
 
   validateMatricula(matricula: string): boolean {
-    // Validar la matrícula 
     const regex = /^A\d{5}[a-zA-Z]$/;
     return regex.test(matricula);
-    //return true;
   }
 
   validatePassword(password: string): boolean {
-    // Validar  una contraseña segura
     const regex = /^(?=.*[a-z])(?=.*\d).{8,}$/;
     return regex.test(password);
-    //return true;
   }
 
   showToast(toastId: string) {

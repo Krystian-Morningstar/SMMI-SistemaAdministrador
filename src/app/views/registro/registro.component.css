@@ -1,9 +1,9 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  display: flex;
+  display: block;
   justify-content: center;
-  align-items: center;
+
 }
 h1 {
   padding: 0;
@@ -19,6 +19,8 @@ h1 {
   margin-top: 90px;
   color: #136587;
   padding: 3rem;
+  margin: 90px auto; /* Auto para los márgenes izquierdo y derecho */
+
 }
 
 .form {
@@ -116,8 +118,15 @@ button:hover {
   background-color: #77d8ff;
 }
 .error-message {
-  color: rgba(255, 0, 98, 0.482);
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  color: #008ec8;
   font-size: 0.9em;
-  position: relative;
-  left: 32vw;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(132, 186, 253, 0.3);
+  z-index: 1;
 }
