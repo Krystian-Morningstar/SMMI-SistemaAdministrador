@@ -1,54 +1,53 @@
 import { Injectable } from '@angular/core';
 import { IMqttMessage, IMqttServiceOptions, MqttService } from 'ngx-mqtt';
-import { IClientSubscribeOptions } from 'mqtt-browser';
-import { Subscription, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignosService {
-  private connection = {
-    hostname: 'localhost',
+  private connection: IMqttServiceOptions = {
+    //hostname: '192.168.28.111',
+    hostname:'localhost',
     port: 8083,
     path: '/mqtt',
     clean: true,
     connectTimeout: 4000,
     reconnectPeriod: 4000,
-    clientId: 'mqttx_597046f4',
+    clientId: 'front_administrador',
     username: 'emqx_test',
     password: 'emqx_test',
     protocol: 'ws',
   };
 
-  private client: MqttService;
-  private subscriptions: { [topic: string]: Subscription } = {};
-  private receiveNewsSubjects: { [topic: string]: Subject<string> } = {};
+  private receiveNewsSubjects: { [topic: string]: BehaviorSubject<string> } = {};
 
   constructor(private _mqttService: MqttService) {
-    this.client = this._mqttService;
-    this.client.connect(this.connection as IMqttServiceOptions);
+    this._mqttService.connect(this.connection);
   }
 
   public subscribeToTopic(topic: string): Observable<string> {
-    if (!this.subscriptions[topic]) {
-      this.receiveNewsSubjects[topic] = new Subject<string>();
-      this.subscriptions[topic] = this.client.observe(topic)
-        .subscribe((message: IMqttMessage) => {
-          this.receiveNewsSubjects[topic].next(message.payload.toString());
-        });
+    if (!this.receiveNewsSubjects[topic]) {
+      this.receiveNewsSubjects[topic] = new BehaviorSubject<string>('');
+      this._mqttService.observe(topic).subscribe((message: IMqttMessage) => {
+        this.receiveNewsSubjects[topic].next(message.payload.toString());
+      });
     }
     return this.receiveNewsSubjects[topic].asObservable();
   }
 
+  public getLastValue(topic: string): string {
+    return this.receiveNewsSubjects[topic] ? this.receiveNewsSubjects[topic].getValue() : '';
+  }
+
   public unsubscribeFromTopic(topic: string): void {
-    if (this.subscriptions[topic]) {
-      this.subscriptions[topic].unsubscribe();
-      delete this.subscriptions[topic];
+    if (this.receiveNewsSubjects[topic]) {
+      this.receiveNewsSubjects[topic].complete();
       delete this.receiveNewsSubjects[topic];
     }
   }
 
   public disconnect(): void {
-    this.client.disconnect(true);
+    this._mqttService.disconnect(true);
   }
 }

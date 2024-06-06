@@ -1,19 +1,15 @@
-<div class="contenedor">
-    <section class="contenido">
-        <div class="titulo">
-            <h1>{{alerta.habitacion}}</h1>
-            <img src=".\assets\images\alerta.png" alt="imagen"/>
-        </div>
-        <div class="info">
-            <p>Paciente: {{alerta.paciente}}</p>
-            <section class="signos">
-                <p>Ritmo cardiaco: {{alerta.ritmoCardiaco}}</p>
-                <p>Presión: {{alerta.presion}}</p>
-                <p>Temperatura: {{alerta.temperatura}}</p>
-                <p>Oxigeno: {{alerta.oxigeno}}</p>
-            </section>
-            <p>Enfermera: {{alerta.enfermera}}</p>
-            <p>Urgencia</p>
-        </div>
-    </section>
+<div class="contenedor" *ngIf="Mostrar_Pantalla" >
+  <section class="contenido" *ngFor="let alerta of alertas">
+    <div class="titulo">
+      <h1>{{alerta.habitacion}}</h1>
+      <img src="./assets/images/alerta.png" alt="imagen"/>
+    </div>
+    <div class="info">
+      <p>Paciente: {{alerta.paciente}}</p>
+      <section class="signos">
+        <p>Sensor: {{alerta.sensor}}</p>
+        <p>Valor: {{alerta.valor}}</p>
+      </section>
+    </div>
+  </section>
 </div>

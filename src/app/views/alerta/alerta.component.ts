@@ -1,25 +1,22 @@
-import { Component } from '@angular/core';
-import { alerta_interface } from 'src/app/models/alerta.model';
+import { Component, OnInit } from '@angular/core';
+import { AlertaService, Alerta } from 'src/app/services/alerta.service';
 
 @Component({
   selector: 'app-alerta',
   templateUrl: './alerta.component.html',
   styleUrls: ['./alerta.component.css']
 })
-export class AlertaComponent {
-  
+export class AlertaComponent implements OnInit {
+
   public Mostrar_Pantalla: boolean = false;
-  
-  async ngOnInit(): Promise<void> {
-    this.Mostrar_Pantalla = false;
-  }
-  alerta: alerta_interface ={
-    habitacion: "habitacion 1",
-    paciente: "paciente",
-    ritmoCardiaco: "120",
-    presion: "101",
-    temperatura: "37",
-    oxigeno: "20",
-    enfermera: "Ana"
+  public alertas: Alerta[] = [];
+
+  constructor(private alertaService: AlertaService) {}
+
+  ngOnInit(): void {
+    this.alertaService.alertas$.subscribe((alertas: Alerta[]) => {
+      this.alertas = alertas;
+      this.Mostrar_Pantalla = alertas.length > 0;
+    });
   }
 }

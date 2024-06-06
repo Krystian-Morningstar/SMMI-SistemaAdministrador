@@ -55,7 +55,7 @@ export class PerfilComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('matricula');
     localStorage.removeItem('cachedProfile');
-    location.reload(); // Recarga la página forzando una recarga desde el servidor (ignora la caché)
+    location.reload(); 
     this.router.navigate(['/login']);
   }
 }

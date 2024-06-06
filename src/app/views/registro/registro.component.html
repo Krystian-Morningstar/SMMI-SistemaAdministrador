@@ -33,8 +33,8 @@
             <label for="sexo">Sexo:</label>
             <select id="sexo" name="sexo" required  (input)="actualizarSexo($event)">
               <option value="" disabled selected>Sexo</option>
-              <option value="M">Mujer</option>
-              <option value="H">Hombre</option>
+              <option value="F">Femenino</option>
+              <option value="M">Masculino</option>
             </select>
           </div>
         </section>
@@ -68,7 +68,7 @@
             <label for="enfermera">Enfermera:</label>
             <select id="enfermera" name="enfermera" required (input)="actualizarEnfermera($event)">
               <option value="Enfermera" disabled selected>Enfermera</option>
-              <option value="enfermera1"required *ngFor="let Enfermera of enfermeras" [value]="Enfermera.matricula">{{Enfermera.nombres}}</option>
+              <option value="enfermera1"required *ngFor="let Enfermera of enfermeras" [value]="Enfermera.matricula">{{Enfermera.nombres}} {{Enfermera.apellidos}}</option>
             </select>
           </div>
           <div class="form-group">

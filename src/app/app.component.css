@@ -11,6 +11,13 @@ body {
     height: 100vh;
     left: 0;
 }
+.alerta{
+    position: fixed;
+    width: 100vw;
+    right: 0;
+    margin-right: 0;
+    top: 0;
+}
 
 .navbar{
     position: fixed;

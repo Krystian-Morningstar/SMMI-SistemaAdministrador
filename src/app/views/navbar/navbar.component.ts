@@ -29,8 +29,8 @@ export class NavbarComponent implements OnInit {
   }
 
   mostrarMenu(event: Event) {
-    event.stopPropagation(); // Detiene la propagación del evento para que no llegue al documento
-    this.mostrar = !this.mostrar; // Alternar el estado del menú
+    event.stopPropagation(); 
+    this.mostrar = !this.mostrar; 
     this.servicio.Actualizar_Menu(this.mostrar);
   }
 
@@ -50,7 +50,7 @@ export class NavbarComponent implements OnInit {
 
   onKeyPress(event: KeyboardEvent) {
     if (event.key === 'Enter') {
-      this.buscarHabitacion(this.buscar); // Llama a la función buscar cuando se presiona "Enter" y pasa el argumento 'nombre'
+      this.buscarHabitacion(this.buscar);
     }
   }
   buscarHabitacion(nombre: any) {

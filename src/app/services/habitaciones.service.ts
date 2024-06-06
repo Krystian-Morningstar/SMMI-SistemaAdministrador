@@ -33,4 +33,8 @@ export class HabitacionesService {
     let result =  this.http.get<string>(environment.url_api + 'api/ingresos/busq/?nombre='+ nombre);
     return result;
   }
+  historialIncidencias(id: string): Observable<string>{
+    let result =  this.http.get<string>(environment.url_api + 'api/alertas-reportes/comp/'+ id);
+    return result;
+  }
 }
