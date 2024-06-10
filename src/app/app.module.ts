@@ -16,7 +16,7 @@ import { BusquedaComponent } from './views/busqueda/busqueda.component';
 
 export const connection: IMqttServiceOptions = {
   //hostname: '192.168.28.111',
-  //hostname: '10.40.2.83',
+  //hostname: '192.168.137.137',
   hostname: 'localhost',
   port: 8083,
   path: '/mqtt',

@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class SignosService {
   private connection: IMqttServiceOptions = {
-    //hostname: '192.168.28.111',
+    //hostname: '192.168.137.137',
     hostname:'localhost',
     port: 8083,
     path: '/mqtt',

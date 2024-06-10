@@ -125,7 +125,7 @@ export class InicioComponent implements OnInit, OnDestroy {
     this.timeoutHandles[habitacion.id] = setTimeout(() => {
       this.sistemaService.Actualizar_Alerta(false);
       this.alertaService.removerAlerta(habitacion.nombre);
-    }, 10000);
+    }, 5000);
   }
 
   seleccionarHabitacion(habitacion: any) {
