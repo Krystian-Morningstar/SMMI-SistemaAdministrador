@@ -125,6 +125,7 @@ export class InicioComponent implements OnInit, OnDestroy {
     this.timeoutHandles[habitacion.id] = setTimeout(() => {
       this.sistemaService.Actualizar_Alerta(false);
       this.alertaService.removerAlerta(habitacion.nombre);
+      location.reload(); 
     }, 5000);
   }
 
@@ -136,10 +137,15 @@ export class InicioComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.mqttSubscriptions.forEach((sub) => sub.unsubscribe());
+  
     for (let handle in this.timeoutHandles) {
       if (this.timeoutHandles.hasOwnProperty(handle)) {
         clearTimeout(this.timeoutHandles[handle]);
       }
     }
+  
+    this.alertaService.limpiarAlertas();
+    this.sistemaService.Actualizar_Alerta(false);
   }
+  
 }

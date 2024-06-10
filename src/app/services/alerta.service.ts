@@ -27,4 +27,8 @@ export class AlertaService {
     const alertas = this.alertasSubject.getValue();
     this.alertasSubject.next(alertas.filter(a => a.habitacion !== habitacion));
   }
+
+  limpiarAlertas(): void {
+    this.alertasSubject.next([]);
+  }
 }

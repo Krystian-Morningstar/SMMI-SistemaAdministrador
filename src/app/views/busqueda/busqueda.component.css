@@ -11,23 +11,28 @@ body {
   align-items: center;
   grid-gap: 0px 0px;
   margin: 0 auto;
-  max-width: 75%;
+  max-width: 80%;
   margin-top: 80px;
   max-height: calc(100vh - 80px);
-  overflow-x: scroll;
+  overflow-y: auto;
 }
 
 .habitacion {
   position: relative;
   max-width: 220px;
-  height: 145px;
+  height: 165px;
   background-color: rgb(0, 132, 255);
   border-radius: 10px;
+  overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   border: hidden;
   text-align: left;
   margin: 10px 0;
   cursor: pointer;
+}
+.habitacion-emergencia {
+  background-color: rgb(255, 0, 72); /* Cambia el color de fondo a rojo en caso de emergencia */
+  color: rgb(124, 0, 0);
 }
 
 .habitaciones button:hover {
@@ -54,7 +59,7 @@ img {
   background-color: rgba(0, 166, 255, 0.209);
   font-weight: 550;
   margin: 0;
-  font-size: 23px;
+  font-size: 14px;
 }
 .contenido {
   position: absolute;
